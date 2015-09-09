@@ -1,24 +1,23 @@
 package edu.mum.lms.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class CheckInOut {
 
 	public CheckInOut() {
 	}
 
-	private Date dueDate;
 	private Member member;
 	private BookCopy copy;
-	private Date checkOutDate;
+	private LocalDate dueDate;
+	private LocalDate checkOutDate;
+	private LocalDate returnDate;
 
-	private Date checkInDate;
-
-	public Date getDueDate() {
+	public LocalDate getDueDate() {
 		return dueDate;
 	}
 
-	public void setDueDate(Date dueDate) {
+	public void setDueDate(LocalDate dueDate) {
 		this.dueDate = dueDate;
 	}
 
@@ -38,20 +37,20 @@ public class CheckInOut {
 		this.copy = copy;
 	}
 
-	public Date getCheckOutDate() {
+	public LocalDate getCheckOutDate() {
 		return checkOutDate;
 	}
 
-	public void setCheckOutDate(Date checkOutDate) {
+	public void setCheckOutDate(LocalDate checkOutDate) {
 		this.checkOutDate = checkOutDate;
 	}
 
-	public Date getCheckInDate() {
-		return checkInDate;
+	public LocalDate getReturnDate() {
+		return returnDate;
 	}
 
-	public void setCheckInDate(Date checkInDate) {
-		this.checkInDate = checkInDate;
+	public void setReturnDate(LocalDate checkInDate) {
+		this.returnDate = checkInDate;
 	}
 
 }
