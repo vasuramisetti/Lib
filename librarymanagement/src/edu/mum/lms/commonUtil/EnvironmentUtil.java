@@ -22,7 +22,12 @@ public class EnvironmentUtil {
     public static String getWorkDir(){
         if(workDir == null){
             workDir = findWorkDir();
+        } else if (System.getProperty("work_dir") != null) {
+            workDir = System.getProperty("work_dir");
+        } else if (System.getenv("LMS_CONF") != null) {
+            workDir = System.getenv("LMS_CONF");
         }
+        
         if(workDir == null){
             throw new RuntimeException("Please add .syconfig file in ");
         }

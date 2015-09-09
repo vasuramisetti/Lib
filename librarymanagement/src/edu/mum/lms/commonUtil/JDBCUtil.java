@@ -12,26 +12,27 @@ public class JDBCUtil {
     private DbClient dbClient;
     
     public static void main(String[] args) {
-        //JDBCUtil db = new JDBCUtil();
-        //db.insertRow("Person", "2","Bidhut","Karki","655-242-233","1000 N", "fairfield", "IA", "54224");
+        JDBCUtil db = new JDBCUtil();
+        //db.insertRow("Person", "4","Bidhut","Karki","655-242-233","1000 N", "fairfield", "IA", "54224");
         
         /*LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();
         map.put("firstName", "Pritivi");
-        map.put("lastName", "Narayan");
+        map.put("lastName", "Khatri");
         map.put("phoneNo", "655-767-321");
         map.put("street", "Sinamangal");
         map.put("city", "Kathmandu");
         map.put("state", "BG");
         map.put("zip", "44600");
         db.insertRow("Person", map, true);
-        */
-       /* 
+        System.out.println("Inserted");
+       */
+       
         FilterCondition conditon = new DbClient.FilterCondition();
         conditon.addCondition("firstName", DbClient.EQUALS, "Bidhut");
         
-        List<Map<String, Object>> elm = db.get("Person", new String[]{"firstName"}, conditon);
+        List<Map<String, Object>> elm = db.get("Person", new String[]{"firstName", "lastName"}, conditon);
         System.out.println(elm);
-        */
+       
     }
     
     public void insertRow(String table, Object... colValues) {
