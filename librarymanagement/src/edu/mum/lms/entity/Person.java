@@ -1,4 +1,4 @@
-package com.lbs.entity;
+package edu.mum.lms.entity;
 
 public class Person {
 
