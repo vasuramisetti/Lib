@@ -1,14 +1,20 @@
 package edu.mum.lms.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javax.annotation.Resources;
 
 import edu.mum.lms.entity.CheckInOut;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -18,6 +24,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class CheckoutRecordList implements Initializable {
 	public static void main(String[] args) {
@@ -58,5 +65,23 @@ public class CheckoutRecordList implements Initializable {
 			Alert alert = new Alert(AlertType.ERROR, "Member ID should be a number", ButtonType.OK);
 			alert.showAndWait();
 		}
+	}
+	
+	public void close(ActionEvent event) {
+		
+	}
+	
+	public void checkout(ActionEvent event) {
+		Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("/edu/mum/lms/view/Checkout.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Checkout");
+            stage.setScene(new Scene(root, 700, 400));
+            stage.show();
+        } 
+        catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 }

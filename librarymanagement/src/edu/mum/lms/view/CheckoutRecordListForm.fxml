@@ -1,23 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane fx:controller="edu.mum.lms.controller.CheckoutRecordList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="821.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.mum.lms.controller.CheckoutRecordList">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="8.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="9.9999999999999E13" minHeight="10.0" prefHeight="600.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="13.0" vgrow="SOMETIMES" />
+  </rowConstraints>
    <children>
-      <Label layoutX="41.0" layoutY="40.0" text="Member ID:" />
-      <TextField fx:id="txtSearch" layoutX="109.0" layoutY="36.0" prefHeight="25.0" prefWidth="228.0" />
-      <TableView fx:id="tblResult" layoutX="41.0" layoutY="75.0" prefHeight="449.0" prefWidth="737.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="821.0" GridPane.rowIndex="2" />
+      <TableView fx:id="tblResult" prefHeight="41.0" prefWidth="228.0" GridPane.rowIndex="2">
          <columns>
-            <TableColumn prefWidth="85.0" text="Copy No." fx:id="copy" />
-            <TableColumn prefWidth="85.0" text="Due Date" fx:id="dueDate" />
-            <TableColumn prefWidth="85.0" text="Check Out Date" fx:id="checkOutDate" />
-            <TableColumn prefWidth="85.0" text="Return Date" fx:id="returnDate" />
+            <TableColumn fx:id="copy" prefWidth="118.0" text="Copy No." />
+            <TableColumn fx:id="dueDate" prefWidth="145.0" text="Due Date" />
+            <TableColumn fx:id="checkOutDate" prefWidth="141.0" text="Check Out Date" />
+            <TableColumn fx:id="returnDate" prefWidth="151.0" text="Return Date" />
          </columns>
       </TableView>
-      <CheckBox fx:id="chkIncludeReturned" layoutX="346.0" layoutY="40.0" mnemonicParsing="false" text="Include Returned" />
-      <Button fx:id="btnRetrieve" layoutX="499.0" layoutY="36.0" mnemonicParsing="false" onAction="#retrieveCheckouts" text="Retrieve" />
+      <GridPane hgap="10.0" GridPane.rowIndex="1">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="120.0" minWidth="120.0" prefWidth="193.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="286.0" minWidth="10.0" prefWidth="218.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="140.0" prefWidth="133.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="395.0" minWidth="10.0" prefWidth="302.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Member ID:" />
+            <TextField fx:id="txtSearch" onAction="#retrieveCheckouts" prefHeight="25.0" prefWidth="228.0" GridPane.columnIndex="1" />
+            <CheckBox fx:id="chkIncludeReturned" mnemonicParsing="false" text="Include Returned" GridPane.columnIndex="2" />
+            <Button fx:id="btnRetrieve" mnemonicParsing="false" onAction="#retrieveCheckouts" text="Retrieve" GridPane.columnIndex="3" />
+         </children>
+      </GridPane>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#checkout" text="Checkout" />
+              <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
    </children>
-</AnchorPane>
+</GridPane>

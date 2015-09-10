@@ -16,6 +16,7 @@ public class Main extends Application {
 		Parent root = FXMLLoader.load(getClass().getResource("/edu/mum/lms/view/CheckoutRecordListForm.fxml"));
         Scene scene = new Scene(root);
         arg0.setScene(scene);
+		arg0.setMaximized(true);
         arg0.show();
 	}
 }

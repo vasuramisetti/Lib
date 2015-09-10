@@ -15,21 +15,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Checkout implements Initializable {
 	
 	private Member member;
 	private Book book;
+	private List<BookCopy> bookCopies; 
 	
 	public static void main(String[] args) {
     }
@@ -69,6 +65,7 @@ public class Checkout implements Initializable {
 	}
 	
 	public void checkBook(ActionEvent event) {
+		
 		String isbn = txtIsbn.getText();
 		
 		BookDto bookDto = new BookDto();
@@ -82,10 +79,10 @@ public class Checkout implements Initializable {
 		else {
 			txtTitle.setText(book.getTitle());
 			BookCopyDto bookCopyDto = new BookCopyDto();
-			List<BookCopy> bookCopies = bookCopyDto.getBookCopies(book.getIsbn());
+			bookCopies = bookCopyDto.getBookCopies(book.getIsbn());
 			
 			ObservableList<BookCopy> data = FXCollections.observableArrayList(bookCopies);
-			cbxCopy.setItems(data);
+			cbxCopy.getItems().addAll(data);
 			
 			this.book = book;
 		}
