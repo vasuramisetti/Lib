@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2015 at 03:25 PM
+-- Generation Time: Sep 10, 2015 at 06:19 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -32,7 +32,14 @@ CREATE TABLE IF NOT EXISTS `author` (
   `shortBio` varchar(255) NOT NULL,
   `person_id` int(11) NOT NULL,
   PRIMARY KEY (`author_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `author`
+--
+
+INSERT INTO `author` (`author_id`, `credentials`, `shortBio`, `person_id`) VALUES
+(1, 'Some Cred', 'Some Bio', 3);
 
 -- --------------------------------------------------------
 
@@ -49,6 +56,14 @@ CREATE TABLE IF NOT EXISTS `book` (
   KEY `isbn_2` (`isbn`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `book`
+--
+
+INSERT INTO `book` (`isbn`, `title`, `author_id`) VALUES
+('978-0071809252', 'Java: A Beginner''s Guide, Sixth Edition 6th Edition', 3),
+('978-1430242338', 'Pro C# 5.0 and the .NET 4.5 Framework (Expert''s Voice in .NET) 6th Edition', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -57,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `book` (
 
 CREATE TABLE IF NOT EXISTS `bookcopy` (
   `copy_id` int(11) NOT NULL AUTO_INCREMENT,
-  `isbn` varchar(11) NOT NULL,
+  `isbn` varchar(20) NOT NULL,
   `copyNumber` int(11) NOT NULL,
   PRIMARY KEY (`copy_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
@@ -67,8 +82,8 @@ CREATE TABLE IF NOT EXISTS `bookcopy` (
 --
 
 INSERT INTO `bookcopy` (`copy_id`, `isbn`, `copyNumber`) VALUES
-(1, '14545', 1),
-(2, '874', 1);
+(1, '978-0071809252', 1),
+(2, '978-0071809252', 2);
 
 -- --------------------------------------------------------
 
@@ -79,7 +94,7 @@ INSERT INTO `bookcopy` (`copy_id`, `isbn`, `copyNumber`) VALUES
 CREATE TABLE IF NOT EXISTS `checkinout` (
   `checkInOut_id` int(11) NOT NULL AUTO_INCREMENT,
   `dueDate` varchar(255) NOT NULL,
-  `checkOutDate` varchar(255) NOT NULL,
+  `checkOutDate` varchar(255) DEFAULT NULL,
   `returnDate` varchar(255) NOT NULL,
   `copy_id` int(11) NOT NULL,
   `memeber_id` int(11) NOT NULL,
@@ -92,8 +107,7 @@ CREATE TABLE IF NOT EXISTS `checkinout` (
 
 INSERT INTO `checkinout` (`checkInOut_id`, `dueDate`, `checkOutDate`, `returnDate`, `copy_id`, `memeber_id`) VALUES
 (1, '01/10/2013', '01/11/2013', '01/12/2013', 0, 0),
-(2, '01/10/2012', '01/11/2012', '01/12/2012', 1, 1),
-(4, '01/10/2011', '01/12/2011', '', 1, 1);
+(2, '01/10/2012', '01/11/2012', '01/12/2012', 1, 1);
 
 -- --------------------------------------------------------
 
