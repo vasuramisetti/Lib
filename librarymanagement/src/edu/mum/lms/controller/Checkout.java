@@ -49,8 +49,8 @@ public class Checkout implements Initializable {
 			MemberDto cioDto = new MemberDto();		
 			Member member = cioDto.getMember(memberId);
 			if(member == null) {
-				txtMemberName.setText("");
-				Alert alert = new Alert(AlertType.ERROR, "Member not found", ButtonType.OK);
+				txtMemberName.setText(null);
+				Alert alert = new Alert(AlertType.INFORMATION, "Member not found", ButtonType.OK);
 				alert.showAndWait();
 			}
 			else {
@@ -72,19 +72,26 @@ public class Checkout implements Initializable {
 		Book book = bookDto.getBook(isbn);
 
 		if(book == null) {
-			txtTitle.setText("");
-			Alert alert = new Alert(AlertType.ERROR, "Book not found", ButtonType.OK);
+			txtTitle.setText(null);
+			Alert alert = new Alert(AlertType.INFORMATION, "Book not found", ButtonType.OK);
 			alert.showAndWait();
 		}
 		else {
-			txtTitle.setText(book.getTitle());
 			BookCopyDto bookCopyDto = new BookCopyDto();
-			bookCopies = bookCopyDto.getBookCopies(book.getIsbn());
-			
-			ObservableList<BookCopy> data = FXCollections.observableArrayList(bookCopies);
-			cbxCopy.getItems().addAll(data);
-			
-			this.book = book;
+			bookCopies = bookCopyDto.getBookCopies(book.getIsbn(), true);
+			if(bookCopies.size() > 0) {
+				txtTitle.setText(book.getTitle());
+				ObservableList<BookCopy> data = FXCollections.observableArrayList(bookCopies);
+				cbxCopy.getItems().addAll(data);
+				
+				this.book = book;
+			}
+			else {
+				txtTitle.setText(null);
+				
+				Alert alert = new Alert(AlertType.INFORMATION, "All copies of this book have been checked out!", ButtonType.OK);
+				alert.showAndWait();
+			}
 		}
 	}
 	

@@ -9,6 +9,7 @@ import java.util.Map;
 import edu.mum.lms.commonUtil.DbClient;
 import edu.mum.lms.commonUtil.JDBCUtil;
 import edu.mum.lms.commonUtil.DbClient.FilterCondition;
+import edu.mum.lms.commonUtil.DbClient.LogicalOperator;
 import edu.mum.lms.entity.BookCopy;
 import edu.mum.lms.entity.CheckInOut;
 
@@ -32,7 +33,7 @@ public class BookCopyDto {
     	return copy;
     }
     
-    public List<BookCopy> getBookCopies(String isbn) {
+    public List<BookCopy> getBookCopies(String isbn, boolean availableOnly) {
     	
         FilterCondition condition = new DbClient.FilterCondition();
         condition.addCondition("isbn", DbClient.EQUALS, isbn);
@@ -43,11 +44,23 @@ public class BookCopyDto {
         
         for(Map<String, Object> rawCopy : rawCopies) {
 	    	BookCopy copy = new BookCopy();
-	    	copy.setCopyId((int)rawCopy.get("copy_id"));
+	    	int copyId = (int)rawCopy.get("copy_id");
+	    	copy.setCopyId(copyId);
 	    	copy.setIsbn((String)rawCopy.get("isbn"));
 	    	copy.setCopyNumber((int)rawCopy.get("copyNumber"));
 	    	
-	    	bookCopies.add(copy);
+	    	if(availableOnly) {
+	    		FilterCondition condition2 = new DbClient.FilterCondition(LogicalOperator.AND);
+	            condition2.addCondition("copy_id", DbClient.EQUALS, copyId);
+	            condition2.addCondition("returnDate", DbClient.EQUALS, null);
+	            
+	            List<Map<String, Object>> checkInOuts = db.get("CheckInOut", null, condition2);
+	            
+	            if(checkInOuts.size() == 0)
+		    		bookCopies.add(copy);
+	    	}
+	    	else
+	    		bookCopies.add(copy);
         }
     	
     	return bookCopies;

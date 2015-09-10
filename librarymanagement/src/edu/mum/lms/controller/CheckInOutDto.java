@@ -53,7 +53,7 @@ public class CheckInOutDto {
         	cio.setDueDate(LocalDate.parse((CharSequence) rawCheckInOut.get("dueDate"), formatter));
         	cio.setCheckOutDate(LocalDate.parse((CharSequence) rawCheckInOut.get("checkOutDate"), formatter));
         	String returnDate = (String)rawCheckInOut.get("returnDate");
-        	if(!returnDate.equals(""))
+        	if(returnDate != null && !returnDate.equals(""))
         		cio.setReturnDate(LocalDate.parse((CharSequence) rawCheckInOut.get("returnDate"), formatter));
         	
         	BookCopyDto bookCopyDto = new BookCopyDto();

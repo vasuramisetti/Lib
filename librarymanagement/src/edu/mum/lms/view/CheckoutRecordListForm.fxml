@@ -39,7 +39,7 @@
             <Label text="Member ID:" />
             <TextField fx:id="txtSearch" onAction="#retrieveCheckouts" prefHeight="25.0" prefWidth="228.0" GridPane.columnIndex="1" />
             <CheckBox fx:id="chkIncludeReturned" mnemonicParsing="false" text="Include Returned" GridPane.columnIndex="2" />
-            <Button fx:id="btnRetrieve" mnemonicParsing="false" onAction="#retrieveCheckouts" text="Retrieve" GridPane.columnIndex="3" />
+            <Button fx:id="btnRetrieve" mnemonicParsing="false" onAction="#retrieveCheckouts" text="Retrieve/Refresh" GridPane.columnIndex="3" />
          </children>
       </GridPane>
       <MenuBar>
