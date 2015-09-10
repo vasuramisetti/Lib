@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane fx:controller="edu.mum.lms.controller.CheckOut" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="821.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="edu.mum.lms.controller.CheckoutRecordList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="821.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="41.0" layoutY="40.0" text="Member ID:" />
       <TextField fx:id="txtSearch" layoutX="109.0" layoutY="36.0" prefHeight="25.0" prefWidth="228.0" />

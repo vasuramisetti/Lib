@@ -9,6 +9,7 @@ public class CheckInOut {
 
 	private Member member;
 	private BookCopy copy;
+	private int copyNumber;
 	private LocalDate dueDate;
 	private LocalDate checkOutDate;
 	private LocalDate returnDate;
@@ -53,4 +54,7 @@ public class CheckInOut {
 		this.returnDate = checkInDate;
 	}
 
+	public int getCopyNumber() {
+		return copy.getCopyNumber();
+	}
 }
