@@ -3,10 +3,10 @@ package edu.mum.lms.view;
 import java.time.LocalDate;
 import java.util.List;
 
-import edu.mum.lms.controller.BookCopyDto;
-import edu.mum.lms.controller.BookDto;
-import edu.mum.lms.controller.CheckInOutDto;
-import edu.mum.lms.controller.MemberDto;
+import edu.mum.lms.controller.BookCopyDao;
+import edu.mum.lms.controller.BookDao;
+import edu.mum.lms.controller.CheckInOutDao;
+import edu.mum.lms.controller.MemberDao;
 import edu.mum.lms.entity.Book;
 import edu.mum.lms.entity.BookCopy;
 import edu.mum.lms.entity.CheckInOut;
@@ -37,11 +37,12 @@ public class CheckoutForm {
     @FXML private ComboBox<BookCopy> cbxCopy;
     @FXML private DatePicker dpkDueDate;
     
+    @FXML
     public void checkMember(ActionEvent event) {
         try {
             int memberId = Integer.parseInt(txtMemberId.getText());
             
-            MemberDto cioDto = new MemberDto();     
+            MemberDao cioDto = new MemberDao();     
             Member member = cioDto.getMember(memberId);
             if(member == null) {
                 txtMemberName.setText("");
@@ -59,10 +60,11 @@ public class CheckoutForm {
         }
     }
     
+    @FXML
     public void checkBook(ActionEvent event) {
         String isbn = txtIsbn.getText();
         
-        BookDto bookDto = new BookDto();
+        BookDao bookDto = new BookDao();
         Book book = bookDto.getBook(isbn);
 
         if(book == null) {
@@ -72,8 +74,8 @@ public class CheckoutForm {
         }
         else {
             txtTitle.setText(book.getTitle());
-            BookCopyDto bookCopyDto = new BookCopyDto();
-            List<BookCopy> bookCopies = bookCopyDto.getBookCopies(book.getIsbn());
+            BookCopyDao bookCopyDao = new BookCopyDao();
+            List<BookCopy> bookCopies = bookCopyDao.getBookCopies(book.getIsbn(), true);
             
             ObservableList<BookCopy> data = FXCollections.observableArrayList(bookCopies);
             cbxCopy.setItems(data);
@@ -82,6 +84,7 @@ public class CheckoutForm {
         }
     }
     
+    @FXML
     public void checkOut(ActionEvent event) { 
         if(member == null) {
             Alert alert = new Alert(AlertType.WARNING, "Member ID is required!", ButtonType.OK);
@@ -96,7 +99,7 @@ public class CheckoutForm {
             alert.showAndWait();
         }
         else {
-            CheckInOutDto checkInOutDto = new CheckInOutDto();
+            CheckInOutDao checkInOutDto = new CheckInOutDao();
             CheckInOut checkInOut = new CheckInOut();
             checkInOut.setCheckOutDate(LocalDate.now());
             checkInOut.setCopy(cbxCopy.getValue());
@@ -111,17 +114,6 @@ public class CheckoutForm {
             Alert alert = new Alert(AlertType.INFORMATION, "Checkout Successful!", ButtonType.OK);
             alert.showAndWait();
         }
-    }
-    
-
-    /**
-     * Event handler fired when the user requests a new vista.
-     *
-     * @param event the event that triggered the handler.
-     */
-    @FXML
-    void nextPane(ActionEvent event) {
-        Navigator.loadScene(Navigator.CHECKOUT_FORM);
     }
     
 

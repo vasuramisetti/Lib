@@ -6,8 +6,11 @@
 
 #headerLabel {
     -fx-background-color: steelblue;
-    -fx-text-fill: white;
     -fx-padding: 5px;
+}
+
+#logo {
+	-fx-background: url("logo.jpg") no-repeat top left;
 }
 
 #vistaHolder {
@@ -23,6 +26,8 @@
 }
 
 .button {
-    -fx-base: lightblue;
-    -fx-font-size: 20px;
+    -fx-background-color: #FF9A04;
+    -fx-border-color:  #FF7F00;
+    -fx-text-fill: #fff;
+    -fx-font-size: 14px;
 }

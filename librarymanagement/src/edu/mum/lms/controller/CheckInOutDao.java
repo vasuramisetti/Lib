@@ -13,7 +13,7 @@ import edu.mum.lms.commonUtil.DbClient.LogicalOperator;
 import edu.mum.lms.commonUtil.JDBCUtil;
 import edu.mum.lms.entity.CheckInOut;
 
-public class CheckInOutDto {
+public class CheckInOutDao {
 
     private JDBCUtil db = new JDBCUtil();
     private static final String TABLE_NAME = "CheckInOut";
@@ -56,7 +56,7 @@ public class CheckInOutDto {
         	if(returnDate != null && !returnDate.equals(""))
         		cio.setReturnDate(LocalDate.parse((CharSequence) rawCheckInOut.get("returnDate"), formatter));
         	
-        	BookCopyDto bookCopyDto = new BookCopyDto();
+        	BookCopyDao bookCopyDto = new BookCopyDao();
         	cio.setCopy(bookCopyDto.getBookCopy((int)rawCheckInOut.get("copy_id")));
         	
         	checkInOuts.add(cio);

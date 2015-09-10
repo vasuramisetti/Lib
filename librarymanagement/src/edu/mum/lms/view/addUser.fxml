@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="456.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.mum.lms.view.AddUser">
+   <children>
+      <Text layoutX="29.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add User">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Label layoutX="29.0" layoutY="64.0" text="First Name" />
+      <TextField fx:id="firstName" layoutX="125.0" layoutY="59.0" prefHeight="26.0" prefWidth="231.0" />
+      <Label layoutX="29.0" layoutY="100.0" text="Last Name" />
+      <TextField fx:id="lastName" layoutX="125.0" layoutY="95.0" prefHeight="26.0" prefWidth="231.0" />
+      <Label layoutX="29.0" layoutY="141.0" text="Phone No" />
+      <TextField fx:id="phoneNo" layoutX="125.0" layoutY="136.0" prefHeight="26.0" prefWidth="231.0" />
+      <Label layoutX="29.0" layoutY="179.0" text="Street" />
+      <TextField fx:id="street" layoutX="125.0" layoutY="174.0" prefHeight="26.0" prefWidth="231.0" />
+      <Label layoutX="29.0" layoutY="221.0" text="City" />
+      <TextField fx:id="city" layoutX="125.0" layoutY="216.0" prefHeight="26.0" prefWidth="231.0" />
+      <Label layoutX="29.0" layoutY="262.0" text="Zip" />
+      <TextField fx:id="zip" layoutX="125.0" layoutY="257.0" prefHeight="26.0" prefWidth="231.0" />
+      <Label layoutX="29.0" layoutY="337.0" text="Username" />
+      <TextField fx:id="username" layoutX="125.0" layoutY="332.0" prefHeight="26.0" prefWidth="231.0" />
+      <Label layoutX="29.0" layoutY="376.0" text="Password" />
+      <TextField fx:id="password" layoutX="125.0" layoutY="371.0" prefHeight="26.0" prefWidth="231.0" />
+      <Button layoutX="282.0" layoutY="408.0" mnemonicParsing="false" onAction="#addUser" text="Add User" />
+      <Label layoutX="29.0" layoutY="300.0" text="State" />
+      <TextField fx:id="sate" layoutX="125.0" layoutY="295.0" prefHeight="26.0" prefWidth="231.0" />
+   </children>
+</AnchorPane>

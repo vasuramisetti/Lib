@@ -8,7 +8,7 @@ import edu.mum.lms.commonUtil.JDBCUtil;
 import edu.mum.lms.commonUtil.DbClient.FilterCondition;
 import edu.mum.lms.entity.Book;
 
-public class BookDto {
+public class BookDao {
     
     private JDBCUtil db = new JDBCUtil();
     private static final String TABLE_NAME = "Book";

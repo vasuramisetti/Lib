@@ -9,7 +9,7 @@ import edu.mum.lms.commonUtil.DbClient.FilterCondition;
 import edu.mum.lms.entity.BookCopy;
 import edu.mum.lms.entity.Member;
 
-public class MemberDto {
+public class MemberDao {
     
     private JDBCUtil db = new JDBCUtil();
     private static final String TABLE_NAME = "Member";

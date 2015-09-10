@@ -13,7 +13,7 @@ import edu.mum.lms.commonUtil.DbClient.LogicalOperator;
 import edu.mum.lms.entity.BookCopy;
 import edu.mum.lms.entity.CheckInOut;
 
-public class BookCopyDto {
+public class BookCopyDao {
     
     private JDBCUtil db = new JDBCUtil();
     private static final String TABLE_NAME = "BookCopy";
