@@ -9,6 +9,7 @@ import java.util.Map;
 
 import edu.mum.lms.commonUtil.DbClient;
 import edu.mum.lms.commonUtil.DbClient.FilterCondition;
+import edu.mum.lms.commonUtil.DbClient.LogicalOperator;
 import edu.mum.lms.commonUtil.JDBCUtil;
 import edu.mum.lms.entity.CheckInOut;
 
@@ -33,12 +34,13 @@ public class CheckInOutDto {
     
     public List<CheckInOut> getCheckInOuts(int memberId, boolean includeReturned) {
     	
-        FilterCondition condition = new DbClient.FilterCondition();
+        FilterCondition condition = new DbClient.FilterCondition(LogicalOperator.AND);
         condition.addCondition("memeber_id", DbClient.EQUALS, memberId);
         
-//        if(!includeReturned) {
-//            condition.addCondition("returnDate", DbClient.EQUALS, "");
-//        }
+        
+        if(!includeReturned) {
+            condition.addCondition("returnDate", DbClient.EQUALS, null);
+        }
         
         List<Map<String, Object>> rawCheckInOuts = db.get(TABLE_NAME, null, condition);
         

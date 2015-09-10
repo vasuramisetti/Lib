@@ -31,4 +31,25 @@ public class BookCopyDto {
     	
     	return copy;
     }
+    
+    public List<BookCopy> getBookCopies(String isbn) {
+    	
+        FilterCondition condition = new DbClient.FilterCondition();
+        condition.addCondition("isbn", DbClient.EQUALS, isbn);
+        
+        List<Map<String, Object>> rawCopies = db.get(TABLE_NAME, null, condition);
+        
+        List<BookCopy> bookCopies = new ArrayList<BookCopy>();
+        
+        for(Map<String, Object> rawCopy : rawCopies) {
+	    	BookCopy copy = new BookCopy();
+	    	copy.setCopyId((int)rawCopy.get("copy_id"));
+	    	copy.setIsbn((String)rawCopy.get("isbn"));
+	    	copy.setCopyNumber((int)rawCopy.get("copyNumber"));
+	    	
+	    	bookCopies.add(copy);
+        }
+    	
+    	return bookCopies;
+    }
 }

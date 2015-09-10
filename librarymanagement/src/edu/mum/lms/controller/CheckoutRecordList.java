@@ -40,7 +40,7 @@ public class CheckoutRecordList implements Initializable {
     @FXML private TableColumn<CheckInOut, String> checkOutDate;
     @FXML private TableColumn<CheckInOut, String> returnDate;
 	
-	public void retrieveCheckouts(ActionEvent event) throws Exception {
+	public void retrieveCheckouts(ActionEvent event) {
 		try {			
 			int memberId = Integer.parseInt(txtSearch.getText());
 

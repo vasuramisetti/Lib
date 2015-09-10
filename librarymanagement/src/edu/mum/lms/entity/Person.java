@@ -18,6 +18,8 @@ public class Person {
 	public String state;
 
 	public int zip;
+	
+	public int memberId;
 
 	public String getFirstName() {
 		return firstName;
@@ -73,6 +75,14 @@ public class Person {
 
 	public void setZip(int zip) {
 		this.zip = zip;
+	}
+
+	public int getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(int memberId) {
+		this.memberId = memberId;
 	}
 
 }
