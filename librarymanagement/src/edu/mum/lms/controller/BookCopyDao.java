@@ -25,13 +25,13 @@ public class BookCopyDao {
         
     	BookCopy copy = new BookCopy();
     	copy.setCopyId(copyId);
-    	copy.setIsbn((int) rawCopy.get("isbn"));
+    	copy.setIsbn((String) rawCopy.get("isbn"));
     	copy.setCopyNumber((int)rawCopy.get("copyNumber"));
     	
     	return copy;
     }
     
-    public List<BookCopy> getBookCopies(int isbn, boolean availableOnly) {
+    public List<BookCopy> getBookCopies(String isbn, boolean availableOnly) {
     	
         FilterCondition condition = new DbClient.FilterCondition();
         condition.addCondition("isbn", DbClient.EQUALS, isbn);
@@ -44,7 +44,7 @@ public class BookCopyDao {
 	    	BookCopy copy = new BookCopy();
 	    	int copyId = (int) rawCopy.get("copy_id");
 	    	copy.setCopyId(copyId);
-	    	copy.setIsbn((int) rawCopy.get("isbn"));
+	    	copy.setIsbn((String) rawCopy.get("isbn"));
 	    	copy.setCopyNumber((int)rawCopy.get("copyNumber"));
 	    	
 	    	if(availableOnly) {
@@ -67,7 +67,7 @@ public class BookCopyDao {
     public String getBookName(int copyId) {
         
         BookCopy bookCopy = getBookCopy(copyId);
-        int isbn = bookCopy.getIsbn();
+        String isbn = bookCopy.getIsbn();
         
         BookDao bookDao = new BookDao();
         Book book = bookDao.getBook(isbn);

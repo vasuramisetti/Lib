@@ -89,7 +89,7 @@ public class AddBook extends ControllerBase {
     public void addBook() {
         Book book = new Book();
         book.setTitle(title.getText());
-        book.setIsbn(Integer.parseInt(isbn.getText()));
+        book.setIsbn(isbn.getText());
         book.setMaxCheckout(Integer.parseInt(maxCheckout.getText()));
         book.setAuthors(authors);
         bdao.addBook(book);

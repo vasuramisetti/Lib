@@ -100,7 +100,7 @@ public class BookDao {
 
     // add book id and author id to bookauthor table .Maintains mutiple relation
     // between book and author
-    public void addBookAuthor(int bookId, int authorId) {
+    public void addBookAuthor(String bookId, int authorId) {
         LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();
         map.put("book_id", bookId);
         map.put("author_id", authorId);
@@ -126,7 +126,7 @@ public class BookDao {
     }
 
     public LocalDate getBookReturnDate(Book book) {
-        int isbn = book.getIsbn();
+        String isbn = book.getIsbn();
         Book foundBook = this.getBook(isbn);
         int checkoutLength  = foundBook.getMaxCheckout();
         LocalDate now = LocalDate.now();

@@ -74,14 +74,10 @@ public class CheckoutForm extends ControllerBase {
         } else {
             txtTitle.setText(book.getTitle());
             BookCopyDao bookCopyDao = new BookCopyDao();
-            CheckInOutDao checkInOutDao = new CheckInOutDao();
-            List<BookCopy> bookCopies = bookCopyDao.getBookCopies(book.getIsbn(), true);
+            List<BookCopy> bookCopies = bookCopyDao.getBookCopies(book.getIsbn(), false);
             List<String> bookCopiesNumber = new ArrayList<String>();
             for (BookCopy copy : bookCopies) {
-                boolean isCheckedOut = checkInOutDao.isBookCheckedOut(copy.getCopyId());
-                if (!isCheckedOut) {
-                    bookCopiesNumber.add(String.valueOf(copy.getCopyNumber()));
-                }
+                bookCopiesNumber.add(String.valueOf(copy.getCopyNumber()));
             }
             if (bookCopiesNumber.size() < 1) {
                 txtTitle.setText(null);
