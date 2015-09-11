@@ -21,6 +21,7 @@ public class Navigator {
     public static final String ADD_USER_FORM = "AddUser.fxml";
     public static final String ADD_MEMBER_FORM = "AddMember.fxml";
     public static final String ADD_BOOK_FORM = "AddBook.fxml";
+    public static final String RETURN_BOOK_FORM = "ReturnBookForm.fxml";
     public static final String LOGIN = "login.fxml";
 
     /** The main application layout controller. */

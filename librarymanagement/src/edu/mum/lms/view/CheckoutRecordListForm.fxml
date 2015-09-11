@@ -16,13 +16,13 @@
   </rowConstraints>
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="821.0" GridPane.rowIndex="2" />
-      <TableView fx:id="tblResult" prefHeight="41.0" prefWidth="228.0" GridPane.rowIndex="2">
+      <TableView fx:id="tblResult" onMouseClicked="#returnBook" prefHeight="41.0" prefWidth="228.0" GridPane.rowIndex="2">
          <columns>
             <TableColumn fx:id="title" prefWidth="118.0" text="Book Title" />
             <TableColumn fx:id="copy" prefWidth="118.0" text="Copy No." />
             <TableColumn fx:id="checkOutDate" prefWidth="141.0" text="Check Out Date" />
             <TableColumn fx:id="dueDate" prefWidth="145.0" text="Due Date" />
-            <TableColumn fx:id="returnDate" prefWidth="151.0" text="Return Date" />
+            <TableColumn fx:id="returnDate" onEditCommit="#returnBook" prefWidth="151.0" text="Return Date" />
          </columns>
       </TableView>
       <GridPane hgap="10.0" GridPane.rowIndex="1">

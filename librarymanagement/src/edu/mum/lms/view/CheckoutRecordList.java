@@ -1,11 +1,16 @@
 package edu.mum.lms.view;
 
+import java.io.IOException;
+
 import edu.mum.lms.controller.CheckInOutDao;
 import edu.mum.lms.entity.CheckInOut;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -15,6 +20,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * Controller class for the second Checkout Record List.
@@ -29,6 +37,8 @@ public class CheckoutRecordList {
 
     @FXML
     private CheckBox chkIncludeReturned;
+    
+    @FXML private Button btnReturnBook;
 
     @FXML
     private TableView<CheckInOut> tblResult;
@@ -64,6 +74,18 @@ System.out.println(new PropertyValueFactory<CheckInOut, String>("bookName"));
         }
     }
 
-
+    @FXML
+    public void returnBook(MouseEvent mouseEvent) {
+    	if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
+            if(mouseEvent.getClickCount() >= 2){
+            	TableView<CheckInOut> tblResult = (TableView<CheckInOut>) mouseEvent.getSource();
+            	CheckInOut checkInOut = tblResult.getSelectionModel().getSelectedItem();
+            	if(checkInOut != null) {
+            		ReturnBook.checkInOut = checkInOut;
+            		Navigator.loadScene(Navigator.RETURN_BOOK_FORM);
+            	}
+            }
+        }
+    }
 
 }

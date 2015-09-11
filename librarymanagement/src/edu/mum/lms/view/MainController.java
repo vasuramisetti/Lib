@@ -74,4 +74,11 @@ public class MainController {
 
     }
 
+    @FXML
+    public void goToReturnBook() {
+        if (UserSession.GetSession.getSession().isAdmin()) {
+            Navigator.loadScene(Navigator.RETURN_BOOK_FORM);
+        }
+    }
+
 }

@@ -78,4 +78,8 @@ public class CheckInOutDao {
         return true;
     }
     
+    public void returnBook(int copy_id, LocalDate returnDate) {
+    	//TODO: Update Table
+    }
+    
 }
