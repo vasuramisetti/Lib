@@ -1,8 +1,8 @@
 package edu.mum.lms.view;
 
-import javafx.fxml.FXMLLoader;
-
 import java.io.IOException;
+
+import javafx.fxml.FXMLLoader;
 
 /**
  * Utility class for controlling navigation between vistas.
@@ -18,6 +18,10 @@ public class Navigator {
     public static final String MAIN    = "main.fxml";
     public static final String CHECKOUT_FORM = "CheckoutForm.fxml";
     public static final String CHECKOUT_LIST = "CheckoutRecordListForm.fxml";
+    public static final String ADD_USER_FORM = "AddUser.fxml";
+    public static final String ADD_MEMBER_FORM = "AddMember.fxml";
+    public static final String ADD_BOOK_FORM = "AddBook.fxml";
+    public static final String LOGIN = "login.fxml";
 
     /** The main application layout controller. */
     private static MainController mainController;

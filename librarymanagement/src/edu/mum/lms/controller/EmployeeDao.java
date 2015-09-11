@@ -6,8 +6,7 @@ import java.util.List;
 
 import edu.mum.lms.commonUtil.JDBCUtil;
 import edu.mum.lms.entity.Employee;
-import edu.mum.lms.entity.EmployeeRole;
-import edu.mum.lms.entity.Person;
+import edu.mum.lms.entity.Employee.EmployeeRole;
 
 public class EmployeeDao {
 
@@ -30,8 +29,8 @@ public class EmployeeDao {
         List<LinkedHashMap<String, Object>> rows = new ArrayList<LinkedHashMap<String, Object>>();
         
         for (EmployeeRole role : roles) {
-            map.put("employee_id", empId);
-            map.put("roleName", role);
+            map.put("emp_id", empId);
+            map.put("roleName", role.name());
             rows.add(map);
         }
 

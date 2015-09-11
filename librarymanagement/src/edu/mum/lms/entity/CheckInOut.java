@@ -8,11 +8,12 @@ public class CheckInOut {
 	}
 
 	private Member member;
-	private BookCopy copy;
-	private int copyNumber;
+	private int copyId;
+	private String bookName;
 	private LocalDate dueDate;
 	private LocalDate checkOutDate;
 	private LocalDate returnDate;
+	
 
 	public LocalDate getDueDate() {
 		return dueDate;
@@ -30,13 +31,6 @@ public class CheckInOut {
 		this.member = member;
 	}
 
-	public BookCopy getCopy() {
-		return copy;
-	}
-
-	public void setCopy(BookCopy copy) {
-		this.copy = copy;
-	}
 
 	public LocalDate getCheckOutDate() {
 		return checkOutDate;
@@ -54,7 +48,29 @@ public class CheckInOut {
 		this.returnDate = checkInDate;
 	}
 
-	public int getCopyNumber() {
-		return copy.getCopyNumber();
-	}
+    public int getCopyId() {
+        return copyId;
+    }
+
+    public void setCopyId(int copyId) {
+        this.copyId = copyId;
+       
+    }
+    
+
+    public String getbookName() {
+        return bookName;
+    }
+    
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    @Override
+    public String toString() {
+        return "CheckInOut [member=" + member + ", copyId=" + copyId + ", bookName=" + bookName + ", dueDate=" + dueDate
+                + ", checkOutDate=" + checkOutDate + ", returnDate=" + returnDate + "]";
+    }
+    
+    
 }

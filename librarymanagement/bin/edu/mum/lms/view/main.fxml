@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.mum.lms.view.MainController">
+<AnchorPane prefHeight="549.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.mum.lms.view.MainController">
    <children>
-      <AnchorPane prefHeight="455.0" prefWidth="800.0" style="-fx-background-color: #FF7F00;">
+      <AnchorPane prefHeight="549.0" prefWidth="800.0" style="-fx-background-color: #FF7F00;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       
         <children>
-            <SplitPane dividerPositions="0.21804511278195488" layoutX="131.0" layoutY="49.0" prefHeight="406.0" prefWidth="800.0" style="-fx-background-color: #FF7F00;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="49.0">
+            <SplitPane dividerPositions="0.18112798264642083" layoutX="131.0" layoutY="49.0" prefHeight="406.0" prefWidth="800.0" style="-fx-background-color: #FF7F00;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="49.0">
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="404.0" prefWidth="179.0" style="-fx-background-color: #FF9A04;">
                      <children>
@@ -20,12 +21,28 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Hyperlink>
-                        <Hyperlink layoutX="15.0" layoutY="53.0" onAction="#goToSearchBook" text="SEARCH BOOK" textFill="WHITE">
+                        <Hyperlink layoutX="15.0" layoutY="53.0" onAction="#goToSearchRecords" text="SEARCH RECORDS" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Hyperlink>
-                        <Hyperlink layoutX="16.0" layoutY="87.0" onAction="#goToAddBook" text="ADD BOOK" textFill="WHITE">
+                        <Hyperlink layoutX="16.0" layoutY="101.0" onAction="#goToAddUser" text="ADD USER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink layoutX="16.0" layoutY="140.0" onAction="#goToAddMember" text="ADD MEMBER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink layoutX="17.0" layoutY="179.0" onAction="#goToAddBook" text="ADD BOOK" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Hyperlink>
+                        <Line endX="100.0" fill="#c6961bc2" layoutX="70.0" layoutY="87.0" startX="-100.0" stroke="#fcfafa" />
+                        <Hyperlink layoutX="17.0" layoutY="213.0" onAction="#goToAddBookCopy" text="ADD BOOK COPY" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -34,7 +51,7 @@
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                      <StackPane fx:id="libraryHolder" layoutX="150.0" layoutY="195.0" prefHeight="404.0" prefWidth="620.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                      <StackPane fx:id="libraryHolder" layoutX="-37.0" layoutY="195.0" prefHeight="498.0" prefWidth="751.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
               </items>

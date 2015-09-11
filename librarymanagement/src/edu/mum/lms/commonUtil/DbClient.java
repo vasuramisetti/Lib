@@ -534,6 +534,7 @@ public class DbClient {
             ResultSet resultSet = ps.executeQuery();
             results = parseResultSet(resultSet);
         } catch (Exception e) {
+            System.out.println(sql);
             if (ps != null)
                 log.debug("Error occurred while executing sql: " + ps.toString());
 

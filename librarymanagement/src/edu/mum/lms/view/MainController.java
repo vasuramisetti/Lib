@@ -1,5 +1,7 @@
 package edu.mum.lms.view;
 
+import edu.mum.lms.controller.UserSession;
+import edu.mum.lms.entity.Employee;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -17,35 +19,59 @@ public class MainController {
     /**
      * Replaces the vista displayed in the vista holder with a new vista.
      *
-     * @param node the vista node to be swapped in.
+     * @param node
+     *            the vista node to be swapped in.
      */
     public void setLibraryInternalScene(Node node) {
         libraryHolder.getChildren().setAll(node);
     }
-    
+
     /**
      * Event handler fired when the user requests a new vista.
      *
-     * @param event the event that triggered the handler.
+     * @param event
+     *            the event that triggered the handler.
      */
     @FXML
     void nextPane(ActionEvent event) {
         Navigator.loadScene(Navigator.CHECKOUT_LIST);
     }
-    
+
     @FXML
     public void goToCheckoutForm() {
         Navigator.loadScene(Navigator.CHECKOUT_FORM);
     }
-    
+
     @FXML
-    public void goToSearchBook() {
+    public void goToSearchRecords() {
         Navigator.loadScene(Navigator.CHECKOUT_LIST);
     }
-    
+
+    @FXML
+    public void goToAddUser() {
+        if (UserSession.GetSession.getSession().isAdmin()) {
+            Navigator.loadScene(Navigator.ADD_USER_FORM);
+        }
+    }
+
+    @FXML
+    public void goToAddMember() {
+        if (UserSession.GetSession.getSession().isAdmin()) {
+            Navigator.loadScene(Navigator.ADD_MEMBER_FORM);
+        }
+    }
+
     @FXML
     public void goToAddBook() {
-        //Navigator.loadScene(Navigator.CHECKOUT_FORM);
+        if (UserSession.GetSession.getSession().isAdmin()) {
+            Navigator.loadScene(Navigator.ADD_BOOK_FORM);
+        }
+    }
+
+    @FXML
+    public void goToAddBookCopy() {
+        // Navigator.loadScene(Navigator.ADD_BOOK_FORM);
+
     }
 
 }

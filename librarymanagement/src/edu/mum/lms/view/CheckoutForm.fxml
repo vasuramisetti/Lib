@@ -5,7 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="379.0" prefWidth="571.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.mum.lms.view.CheckoutForm">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="571.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.mum.lms.view.CheckoutForm">
    <children>
       <GridPane layoutX="43.0" layoutY="60.0" prefHeight="249.0" prefWidth="478.0">
         <columnConstraints>
@@ -52,9 +52,9 @@
                </children>
             </AnchorPane>
             <TextField fx:id="txtMemberId" onAction="#checkMember" GridPane.columnIndex="1" />
-            <TextField fx:id="txtMemberName" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtMemberName" editable="false" onKeyPressed="#checkMember" onMouseClicked="#checkMember" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txtIsbn" onAction="#checkBook" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="txtTitle" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtTitle" editable="false" onKeyPressed="#checkBook" onMouseClicked="#checkBook" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <ComboBox fx:id="cbxCopy" prefHeight="25.0" prefWidth="341.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <DatePicker fx:id="dpkDueDate" prefHeight="25.0" prefWidth="340.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
@@ -63,6 +63,11 @@
       <Text layoutX="43.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checkout">
          <font>
             <Font size="29.0" />
+         </font>
+      </Text>
+      <Text fx:id="alertMessage" fill="#0a8d3f" layoutX="190.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="221.68292617797852">
+         <font>
+            <Font size="14.0" />
          </font>
       </Text>
    </children>

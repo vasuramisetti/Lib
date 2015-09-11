@@ -7,15 +7,16 @@ public class Book {
 	public Book() {
 	}
 
-	private String isbn;
+	private int isbn;
 	private String title;
+	private int maxCheckout;
 	private List<Author> authors;
 
-	public String getIsbn() {
+	public int getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(String isbn) {
+	public void setIsbn(int isbn) {
 		this.isbn = isbn;
 	}
 
@@ -34,5 +35,13 @@ public class Book {
 	public void setAuthors(List<Author> authors) {
 		this.authors = authors;
 	}
+
+    public int getMaxCheckout() {
+        return maxCheckout;
+    }
+
+    public void setMaxCheckout(int maxCheckout) {
+        this.maxCheckout = maxCheckout;
+    }
 
 }

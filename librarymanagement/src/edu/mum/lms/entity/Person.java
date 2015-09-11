@@ -2,87 +2,88 @@ package edu.mum.lms.entity;
 
 public class Person {
 
-	public Person() {
-	}
+    public Person() {
+    }
 
-	public String firstName;
+    public Person(String firstName, String lastName, String phoneNo, String street, String city, String state,
+            int zip) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.phoneNo = phoneNo;
+    }
 
-	public String lastName;
+    public String firstName;
 
-	public String phoneNo;
+    public String lastName;
 
-	public String street;
+    public String street;
 
-	public String city;
+    public String city;
 
-	public String state;
+    public String state;
 
-	public int zip;
-	
-	public int memberId;
+    public int zip;
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public String phoneNo;
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public String getPhoneNo() {
-		return phoneNo;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public void setPhoneNo(String phoneNo) {
-		this.phoneNo = phoneNo;
-	}
+    public String getPhoneNo() {
+        return phoneNo;
+    }
 
-	public String getStreet() {
-		return street;
-	}
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
+    }
 
-	public void setStreet(String street) {
-		this.street = street;
-	}
+    public String getStreet() {
+        return street;
+    }
 
-	public String getCity() {
-		return city;
-	}
+    public void setStreet(String street) {
+        this.street = street;
+    }
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+    public String getCity() {
+        return city;
+    }
 
-	public String getState() {
-		return state;
-	}
+    public void setCity(String city) {
+        this.city = city;
+    }
 
-	public void setState(String state) {
-		this.state = state;
-	}
+    public String getState() {
+        return state;
+    }
 
-	public int getZip() {
-		return zip;
-	}
+    public void setState(String state) {
+        this.state = state;
+    }
 
-	public void setZip(int zip) {
-		this.zip = zip;
-	}
+    public int getZip() {
+        return zip;
+    }
 
-	public int getMemberId() {
-		return memberId;
-	}
-
-	public void setMemberId(int memberId) {
-		this.memberId = memberId;
-	}
+    public void setZip(int zip) {
+        this.zip = zip;
+    }
 
 }

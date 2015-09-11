@@ -7,15 +7,15 @@ public class BookCopy {
 
 	private int copyId;
 	
-	private String isbn;
+	private int isbn;
 
 	private int copyNumber;
 
-	public String getIsbn() {
+	public int getIsbn() {
 		return isbn;
 	}
 
-	public void setIsbn(String isbn) {
+	public void setIsbn(int isbn) {
 		this.isbn = isbn;
 	}
 

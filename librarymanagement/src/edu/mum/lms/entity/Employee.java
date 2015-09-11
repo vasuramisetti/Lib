@@ -7,23 +7,23 @@ public class Employee extends Person {
 	public Employee() {
 	}
 
-	private int employeeId;
-
+	private int empId;
+	
 	private String username;
 
 	private String password;
 
 	private List<EmployeeRole> roles;
 
-	public int getEmployeeId() {
-		return employeeId;
-	}
+	public int getEmpId() {
+        return empId;
+    }
 
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
-	}
+    public void setEmpId(int empId) {
+        this.empId = empId;
+    }
 
-	public String getUsername() {
+    public String getUsername() {
 		return username;
 	}
 

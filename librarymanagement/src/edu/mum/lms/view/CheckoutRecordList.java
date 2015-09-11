@@ -33,6 +33,8 @@ public class CheckoutRecordList {
     @FXML
     private TableView<CheckInOut> tblResult;
     @FXML
+    private TableColumn<CheckInOut, String> title;
+    @FXML
     private TableColumn<CheckInOut, String> copy;
     @FXML
     private TableColumn<CheckInOut, String> dueDate;
@@ -42,17 +44,17 @@ public class CheckoutRecordList {
     private TableColumn<CheckInOut, String> returnDate;
 
     @FXML
-    public void retrieveCheckouts(ActionEvent event) {
+    public void retrieveCheckouts() {
         try {
             int memberId = Integer.parseInt(txtSearch.getText());
-
-            copy.setCellValueFactory(new PropertyValueFactory<CheckInOut, String>("copyNumber"));
+System.out.println(new PropertyValueFactory<CheckInOut, String>("bookName"));
+            title.setCellValueFactory(new PropertyValueFactory<CheckInOut, String>("bookName"));
+            copy.setCellValueFactory(new PropertyValueFactory<CheckInOut, String>("copyId"));
             dueDate.setCellValueFactory(new PropertyValueFactory<CheckInOut, String>("dueDate"));
             checkOutDate.setCellValueFactory(new PropertyValueFactory<CheckInOut, String>("checkOutDate"));
             returnDate.setCellValueFactory(new PropertyValueFactory<CheckInOut, String>("returnDate"));
 
             CheckInOutDao cioDto = new CheckInOutDao();
-
             ObservableList<CheckInOut> data = FXCollections
                     .observableArrayList(cioDto.getCheckInOuts(memberId, chkIncludeReturned.isSelected()));
             tblResult.setItems(data);
@@ -62,25 +64,6 @@ public class CheckoutRecordList {
         }
     }
 
-    @FXML
-    public void close(ActionEvent event) {
 
-    }
-
-    @FXML
-    public void checkout(ActionEvent event) {
-       Navigator.loadScene(Navigator.CHECKOUT_FORM);
-    }
-
-    /**
-     * Event handler fired when the user requests a previous vista.
-     *
-     * @param event
-     *            the event that triggered the handler.
-     */
-    @FXML
-    void previousPane(ActionEvent event) {
-        Navigator.loadScene(Navigator.CHECKOUT_LIST);
-    }
 
 }

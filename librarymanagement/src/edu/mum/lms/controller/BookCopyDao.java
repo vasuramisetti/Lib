@@ -1,17 +1,15 @@
 package edu.mum.lms.controller;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import edu.mum.lms.commonUtil.DbClient;
-import edu.mum.lms.commonUtil.JDBCUtil;
 import edu.mum.lms.commonUtil.DbClient.FilterCondition;
 import edu.mum.lms.commonUtil.DbClient.LogicalOperator;
+import edu.mum.lms.commonUtil.JDBCUtil;
+import edu.mum.lms.entity.Book;
 import edu.mum.lms.entity.BookCopy;
-import edu.mum.lms.entity.CheckInOut;
 
 public class BookCopyDao {
     
@@ -27,13 +25,13 @@ public class BookCopyDao {
         
     	BookCopy copy = new BookCopy();
     	copy.setCopyId(copyId);
-    	copy.setIsbn((String)rawCopy.get("isbn"));
+    	copy.setIsbn((int) rawCopy.get("isbn"));
     	copy.setCopyNumber((int)rawCopy.get("copyNumber"));
     	
     	return copy;
     }
     
-    public List<BookCopy> getBookCopies(String isbn, boolean availableOnly) {
+    public List<BookCopy> getBookCopies(int isbn, boolean availableOnly) {
     	
         FilterCondition condition = new DbClient.FilterCondition();
         condition.addCondition("isbn", DbClient.EQUALS, isbn);
@@ -44,9 +42,9 @@ public class BookCopyDao {
         
         for(Map<String, Object> rawCopy : rawCopies) {
 	    	BookCopy copy = new BookCopy();
-	    	int copyId = (int)rawCopy.get("copy_id");
+	    	int copyId = (int) rawCopy.get("copy_id");
 	    	copy.setCopyId(copyId);
-	    	copy.setIsbn((String)rawCopy.get("isbn"));
+	    	copy.setIsbn((int) rawCopy.get("isbn"));
 	    	copy.setCopyNumber((int)rawCopy.get("copyNumber"));
 	    	
 	    	if(availableOnly) {
@@ -58,11 +56,22 @@ public class BookCopyDao {
 	            
 	            if(checkInOuts.size() == 0)
 		    		bookCopies.add(copy);
-	    	}
-	    	else
+	    	} else {
 	    		bookCopies.add(copy);
+	    	}
         }
     	
     	return bookCopies;
+    }
+
+    public String getBookName(int copyId) {
+        
+        BookCopy bookCopy = getBookCopy(copyId);
+        int isbn = bookCopy.getIsbn();
+        
+        BookDao bookDao = new BookDao();
+        Book book = bookDao.getBook(isbn);
+        
+        return book.getTitle();
     }
 }

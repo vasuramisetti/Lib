@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.mum.lms.view.Login">
+   <children>
+      <Label layoutX="121.0" layoutY="143.0" text="Username" />
+      <TextField fx:id="username" layoutX="234.0" layoutY="138.0" prefHeight="26.0" prefWidth="207.0" promptText="Enter Username" />
+      <Label layoutX="121.0" layoutY="179.0" text="Password" />
+      <PasswordField fx:id="password" layoutX="234.0" layoutY="174.0" prefHeight="26.0" prefWidth="207.0" promptText="Enter Password" />
+      <Button layoutX="234.0" layoutY="219.0" mnemonicParsing="false" onAction="#doLogin" prefHeight="26.0" prefWidth="75.0" text="Login" />
+
+      <Text fx:id="alertMessage" fill="#ee0707" layoutX="125.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="292.6829261779785" />
+   </children>
+</AnchorPane>
