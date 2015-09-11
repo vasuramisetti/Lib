@@ -28,6 +28,8 @@ import javafx.stage.Stage;
  * Controller class for the second Checkout Record List.
  */
 public class CheckoutRecordList {
+	
+	public static CheckInOut checkInOut;
 
     @FXML
     private Button btnRetrieve;
@@ -81,7 +83,7 @@ System.out.println(new PropertyValueFactory<CheckInOut, String>("bookName"));
             	TableView<CheckInOut> tblResult = (TableView<CheckInOut>) mouseEvent.getSource();
             	CheckInOut checkInOut = tblResult.getSelectionModel().getSelectedItem();
             	if(checkInOut != null) {
-            		ReturnBook.checkInOut = checkInOut;
+            		this.checkInOut = checkInOut;
             		Navigator.loadScene(Navigator.RETURN_BOOK_FORM);
             	}
             }

@@ -7,10 +7,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 
 public class ReturnBook {
-	public static CheckInOut checkInOut;
 	
 	public ReturnBook() {
-		lblTitle.setText(checkInOut.getbookName());
+		//lblTitle.setText(CheckoutRecordList.checkInOut.getbookName());
 	}
 	
 	@FXML private Label lblTitle;
@@ -21,7 +20,7 @@ public class ReturnBook {
 	@FXML
 	public void returnBook() {
 		CheckInOutDao checkInOutDao = new CheckInOutDao();
-		checkInOutDao.returnBook(checkInOut.getCopyId(), dpkReturnDate.getValue());
+		checkInOutDao.returnBook(CheckoutRecordList.checkInOut.getCopyId(), dpkReturnDate.getValue());
 		//Close Window, Refresh Parent
 	}
 }
