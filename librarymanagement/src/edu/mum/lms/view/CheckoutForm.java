@@ -47,7 +47,7 @@ public class CheckoutForm extends ControllerBase {
             MemberDao cioDto = new MemberDao();
             Member member = cioDto.getMember(memberId);
             if (member == null) {
-                txtMemberName.setText("");
+                txtMemberName.setText(null);
                 Alert alert = new Alert(AlertType.ERROR, "Member not found", ButtonType.OK);
                 alert.showAndWait();
             } else {
@@ -65,10 +65,10 @@ public class CheckoutForm extends ControllerBase {
         String isbn = txtIsbn.getText();
 
         BookDao bookDto = new BookDao();
-        Book book = bookDto.getBook(Integer.parseInt(isbn));
+        Book book = bookDto.getBook(isbn);
 
         if (book == null) {
-            txtTitle.setText("");
+            txtTitle.setText(null);
             Alert alert = new Alert(AlertType.ERROR, "Book not found", ButtonType.OK);
             alert.showAndWait();
         } else {
@@ -84,7 +84,7 @@ public class CheckoutForm extends ControllerBase {
                 }
             }
             if (bookCopiesNumber.size() < 1) {
-                txtTitle.setText("");
+                txtTitle.setText(null);
                 Alert alert = new Alert(AlertType.ERROR, "No Copies of this book are available for checkout",
                         ButtonType.OK);
                 alert.showAndWait();

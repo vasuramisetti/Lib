@@ -18,7 +18,7 @@ public class BookDao {
     private JDBCUtil db = new JDBCUtil();
     private static final String TABLE_NAME = "Book";
 
-    public Book getBook(int isbn) {
+    public Book getBook(String isbn) {
         Book book = null;
         FilterCondition condition = new DbClient.FilterCondition();
         condition.addCondition("isbn", DbClient.EQUALS, isbn);
