@@ -13,6 +13,7 @@ public class JDBCUtil {
     
     public static void main(String[] args) {
         JDBCUtil db = new JDBCUtil();
+        
         //db.insertRow("Person", "4","Bidhut","Karki","655-242-233","1000 N", "fairfield", "IA", "54224");
         
         /*LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();

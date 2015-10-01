@@ -20,17 +20,18 @@ public class EnvironmentUtil {
     
     
     public static String getWorkDir(){
-        if(workDir == null){
-            workDir = findWorkDir();
+        if (System.getenv("LMS_CONF") != null) {
+            workDir = System.getenv("LMS_CONF");
         } else if (System.getProperty("work_dir") != null) {
             workDir = System.getProperty("work_dir");
-        } else if (System.getenv("LMS_CONF") != null) {
-            workDir = System.getenv("LMS_CONF");
+        } if(workDir == null){
+            workDir = findWorkDir();
         }
         
         if(workDir == null){
             throw new RuntimeException("Please add .syconfig file in ");
         }
+        System.setProperty("LMS_CONF", workDir);
         return workDir;     
     }
     

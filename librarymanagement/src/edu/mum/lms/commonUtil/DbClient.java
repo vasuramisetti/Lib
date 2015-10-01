@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
 
 public class DbClient {
 
@@ -31,12 +32,23 @@ public class DbClient {
     public static final int GREATER = 2;
     public static final int NOT_EQUALS = 3;
     public static final int LIKE = 4;
+    
+    @Value("${jdbc.host}")
+    private static String HOST;
+    
+    @Value("${jdbc.user}")
+    private static String DB_USER;
+    
+    @Value("${jdbc.password}")
+    private static String DB_PASSWORD;
 
     public static void main(String[] argv) throws Exception {
-        DbClient dbClient = new DbClient();
+        /*DbClient dbClient = new DbClient();
         dbClient.connectDb();
         dbClient.insertRow("Person", "","Bidhut","Karki","655-242-233","1000 N", "fairfield", "IA", "54224");
-        dbClient.close();
+        dbClient.close();*/
+        
+        System.out.println(HOST);
         
     }
 
