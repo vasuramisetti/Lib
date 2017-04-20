@@ -15,7 +15,7 @@ public class EnvironmentUtil {
     private static Logger log = loggerForThisClass();
     
     public static void main(String[] args) {
-        System.out.println(getPropertyFromFile(getPropertiesFilePath(), "jdbc.root"));
+        System.out.println(getPropertyFromFile(getPropertiesFilePath(), "jdbc.users"));
     }
     
     
