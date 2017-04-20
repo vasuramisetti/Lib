@@ -54,9 +54,9 @@ public class DbClient {
 
     public void connectDb() {
         Properties prop = EnvironmentUtil.readPropertiesFromFile(EnvironmentUtil.getPropertiesFilePath());
-        String host = prop.getProperty("jdbc.host");
-        String user = prop.getProperty("jdbc.user");
-        String pass = prop.getProperty("jdbc.password");
+        String host = prop.getProperty("jdbc.localhost3306");
+        String user = prop.getProperty("jdbc.root");
+        String pass = prop.getProperty("jdbc.Vasudev17*");
         try {
             _conn = DriverManager.getConnection(host, user, pass);
         } catch (Exception e) {
